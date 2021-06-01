@@ -42,7 +42,12 @@ def contact(request):
 
 # ========================================================== Periemeter =======================================
 
+def peri(request):
+    active = 'active'
+    return render(request, 'perimeter.html', {'activeperi': active})
+
  ########## --- circle --- #########
+
 
 def circle(request):
     active = 'active'

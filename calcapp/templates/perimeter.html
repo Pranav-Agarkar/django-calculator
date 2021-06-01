@@ -1,7 +1,4 @@
 {% extends "dynamic.html" %} {% block content %}
-<!-- Header -->
-<title>Home | Calculator</title>
-<!-- Body -->
 <!-- Square card -->
 <style>
   .demo-card-square.mdl-card {
@@ -11,9 +8,8 @@
   }
   .demo-card-square > .mdl-card__title {
     color: #fff;
-    background: url("blob:https://maketext.io/74a9270b-5a74-4775-bb1c-4f088cca024b")
-      bottom right 15% no-repeat #46b6ac;
-    background-position: center;
+    background: url("../assets/demos/dog.png") bottom right 15% no-repeat
+      #46b6ac;
   }
 </style>
 <br />
@@ -27,11 +23,9 @@
   <div class="mdl-card__actions mdl-card--border">
     <a
       class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-      href="/peri"
     >
-      Find Perimeter
+      View Updates
     </a>
   </div>
 </div>
-
 {% endblock %}

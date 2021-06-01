@@ -7,6 +7,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('contact', views.contact, name='contact'),
     # ================== Periemeter ==================
+    path('peri', views.peri, name='peri'),
     path('peri/circle', views.circle, name='circleperi'),
     path('peri/circleres', views.circleres, name='circleperires'),
     path('peri/semicircle', views.semicircle, name='semicircleperi'),
