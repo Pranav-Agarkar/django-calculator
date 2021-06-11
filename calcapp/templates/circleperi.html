@@ -8,42 +8,56 @@
     align-content: center;
   }
 </style>
-<div class="frosty">
-  <form action="/peri/circleres" method="post">
-    {% csrf_token %}
-    <div class="form-floating mb-3">
-      <input
-        autofocus
-        value="{{radius}}"
-        name="radius"
-        step="any"
-        type="number"
-        class="form-control"
-        id="floatingInput"
-        placeholder="123 ..."
-        required
-      />
-      <label for="floatingInput">Enter Radius</label>
-    </div>
-    <div class="col-auto">
-      <button type="submit" class="btn btn-primary mt-2 mb-3">Calculate</button>
-    </div>
-    <div class="col-auto">
-      <a class="btn btn-primary mb-3" href="/peri/circle" role="button"
-        >Reset</a
-      >
-    </div>
-    <div class="form-floating">
-      <input
-        type="text"
-        class="form-control"
-        id="floatingInput"
-        placeholder="Answer"
-        value="{{result}}"
-        disabled
-      />
-      <label for="floatingPassword">Perimeter of the circle is :</label>
-    </div>
-  </form>
-</div>
+<form action="/peri/circleres" method="POST">
+  {% csrf_token %}
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input
+      value="{{radius}}"
+      name="radius"
+      step="any"
+      class="mdl-textfield__input"
+      type="number"
+      pattern="-?[0-9]*(\.[0-9]+)?"
+      id="sample4"
+      required
+      autofocus
+    />
+    <label class="mdl-textfield__label" for="sample4">Number...</label>
+    <span class="mdl-textfield__error">Input is not a number!</span>
+  </div>
+
+  <button
+    type="submit"
+    class="
+      mdl-button mdl-js-button
+      mdl-button--raised
+      mdl-js-ripple-effect
+      mdl-button--accent
+    "
+  >
+    Calculate
+  </button>
+
+  <div class="col-auto">
+    <a class="btn btn-primary mb-3" href="/peri/circle" role="button">Reset</a>
+  </div>
+
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input
+      class="mdl-textfield__input"
+      type="text"
+      pattern="-?[0-9]*(\.[0-9]+)?"
+      id="sample4"
+      value="{{result}}"
+      readonly
+    />
+    <label class="mdl-textfield__label" for="sample4"
+      >Perimeter of the circle is :</label
+    >
+    <span class="mdl-textfield__error">Input is not a number!</span>
+  </div>
+</form>
+
+<!-- Numeric Textfield with Floating Label -->
+
 {% endblock %}
