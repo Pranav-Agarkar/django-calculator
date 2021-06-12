@@ -13,7 +13,7 @@
   </ul>
 </div>
 <div class="alicntr">
-  <div class="frm mdl-shadow--2dp">
+  <div class="frm mdl-shadow--2dp" id="frm">
     <form action="/peri/circleres" method="POST">
       {% csrf_token %}
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -25,12 +25,12 @@
           type="number"
           pattern=""
           id="sample4"
-          
           autofocus
         />
         <label class="mdl-textfield__label" for="sample4">Number...</label>
         <span class="mdl-textfield__error">Input is not a number!</span>
       </div>
+
       <br /><br />
 
       <button
@@ -62,34 +62,39 @@
 
       <br />
       <br />
-
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input
-          class="mdl-textfield__input"
-          type="text"
-          pattern="-?[0-9]*(\.[0-9]+)?"
-          id="sample4"
-          value="{{result}}"
-          readonly
-        />
-        <label class="mdl-textfield__label" for="sample4"
-          >Perimeter of the circle is :</label
+      <div>
+        <div
+          class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
         >
-        <span class="mdl-textfield__error">Input is not a number!</span>
-      </div>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input
-          class="mdl-textfield__input"
-          type="text"
-          pattern="-?[0-9]*(.[0-9]+)?"
-          id="sample4"
-          value="{{fractionofvalue}}"
-          readonly
-        />
-        <label class="mdl-textfield__label" for="sample4"
-          >Perimeter of the circle in fraction is :</label
+          <input
+            class="mdl-textfield__input"
+            type="text"
+            pattern="-?[0-9]*(\.[0-9]+)?"
+            id="sample4"
+            value="{{result}}"
+            readonly
+          />
+          <label class="mdl-textfield__label" for="sample4"
+            >Perimeter of the circle is :</label
+          >
+          <span class="mdl-textfield__error">Input is not a number!</span>
+        </div>
+        <div
+          class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
         >
-        <span class="mdl-textfield__error">Input is not a number!</span>
+          <input
+            class="mdl-textfield__input"
+            type="text"
+            pattern="-?[0-9]*(.[0-9]+)?"
+            id="sample4"
+            value="{{fractionofvalue}}"
+            readonly
+          />
+          <label class="mdl-textfield__label" for="sample4"
+            >Perimeter of the circle in fraction is :</label
+          >
+          <span class="mdl-textfield__error">Input is not a number!</span>
+        </div>
       </div>
     </form>
   </div>
