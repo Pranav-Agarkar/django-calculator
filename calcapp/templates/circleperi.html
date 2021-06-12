@@ -1,63 +1,99 @@
-{% extends "dynamic.html" %} {% block content %}
-<style>
-  .frosty {
-    margin: 10px;
-    padding: 10px;
-  }
-  button {
-    align-content: center;
-  }
-</style>
-<form action="/peri/circleres" method="POST">
-  {% csrf_token %}
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input
-      value="{{radius}}"
-      name="radius"
-      step="any"
-      class="mdl-textfield__input"
-      type="number"
-      pattern="-?[0-9]*(\.[0-9]+)?"
-      id="sample4"
-      required
-      autofocus
-    />
-    <label class="mdl-textfield__label" for="sample4">Number...</label>
-    <span class="mdl-textfield__error">Input is not a number!</span>
+{% extends "dynamic.html" %} {% block content %}{% load static %}
+
+<link rel="stylesheet" href="{% static 'circumference.css' %}" />
+<div class="tabs">
+  <ul>
+    <li><a id="ano" href="/peri">Introduction</a></li>
+    <li class="is-active"><a id="ano" href="/peri/circle">Circle</a></li>
+    <li><a id="ano">Semi-Circle</a></li>
+    <li><a id="ano">Documents</a></li>
+    <li><a id="ano">Documents</a></li>
+    <li><a id="ano">Documents</a></li>
+    <li><a id="ano">Documents</a></li>
+  </ul>
+</div>
+<div class="alicntr">
+  <div class="frm mdl-shadow--2dp">
+    <form action="/peri/circleres" method="POST">
+      {% csrf_token %}
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input
+          value="{{radius}}"
+          name="radius"
+          step="any"
+          class="mdl-textfield__input"
+          type="number"
+          pattern=""
+          id="sample4"
+          
+          autofocus
+        />
+        <label class="mdl-textfield__label" for="sample4">Number...</label>
+        <span class="mdl-textfield__error">Input is not a number!</span>
+      </div>
+      <br /><br />
+
+      <button
+        id="btnsub"
+        type="submit"
+        class="
+          mdl-button mdl-js-button
+          mdl-button--raised
+          mdl-js-ripple-effect
+          mdl-button--accent
+        "
+      >
+        Calculate
+      </button>
+
+      <br /><br />
+
+      <a
+        id="rea"
+        class="
+          mdl-button mdl-js-button
+          mdl-button--raised
+          mdl-js-ripple-effect
+          mdl-button--accent
+        "
+        href="/peri/circle"
+        >Reset</a
+      >
+
+      <br />
+      <br />
+
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input
+          class="mdl-textfield__input"
+          type="text"
+          pattern="-?[0-9]*(\.[0-9]+)?"
+          id="sample4"
+          value="{{result}}"
+          readonly
+        />
+        <label class="mdl-textfield__label" for="sample4"
+          >Perimeter of the circle is :</label
+        >
+        <span class="mdl-textfield__error">Input is not a number!</span>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input
+          class="mdl-textfield__input"
+          type="text"
+          pattern="-?[0-9]*(.[0-9]+)?"
+          id="sample4"
+          value="{{fractionofvalue}}"
+          readonly
+        />
+        <label class="mdl-textfield__label" for="sample4"
+          >Perimeter of the circle in fraction is :</label
+        >
+        <span class="mdl-textfield__error">Input is not a number!</span>
+      </div>
+    </form>
   </div>
-
-  <button
-    type="submit"
-    class="
-      mdl-button mdl-js-button
-      mdl-button--raised
-      mdl-js-ripple-effect
-      mdl-button--accent
-    "
-  >
-    Calculate
-  </button>
-
-  <div class="col-auto">
-    <a class="btn btn-primary mb-3" href="/peri/circle" role="button">Reset</a>
-  </div>
-
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input
-      class="mdl-textfield__input"
-      type="text"
-      pattern="-?[0-9]*(\.[0-9]+)?"
-      id="sample4"
-      value="{{result}}"
-      readonly
-    />
-    <label class="mdl-textfield__label" for="sample4"
-      >Perimeter of the circle is :</label
-    >
-    <span class="mdl-textfield__error">Input is not a number!</span>
-  </div>
-</form>
-
+</div>
 <!-- Numeric Textfield with Floating Label -->
 
 {% endblock %}

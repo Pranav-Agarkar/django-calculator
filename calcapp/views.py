@@ -1,6 +1,8 @@
+from fractions import Fraction
 from django.shortcuts import render
 from .models import Contact
 from django.http import HttpResponse
+import fractions
 
 # Create your views here.
 
@@ -57,8 +59,10 @@ def circle(request):
 def circleres(request):
     val1 = float(request.POST["radius"])
     res = two * pi * val1
+    frac = str(res)
     active = 'active'
-    return render(request, 'circleperi.html', {'activecircle': active, 'result': res, 'radius': val1})
+    fractionalvalue = fractions.Fraction(frac).limit_denominator(7)
+    return render(request, 'circleperi.html', {'activecircle': active, 'result': res, 'radius': val1, 'fractionofvalue': fractionalvalue})
 
 ########## ----- Semi-Circle ---- ######
 
